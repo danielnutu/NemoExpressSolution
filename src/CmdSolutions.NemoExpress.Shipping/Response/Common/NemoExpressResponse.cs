@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using System;
+using System.Text.Json.Serialization;
 
 namespace CmdSolutions.NemoExpress.Shipping.Response
 {
@@ -44,8 +45,19 @@ namespace CmdSolutions.NemoExpress.Shipping.Response
         /// <returns>A string, duh!</returns>
         public override string ToString()
         {
-            if (Status == NemoExpressResponseStatus.Done) return Status.ToString();
-            return $"{Error}: {Message}";
+            var message = $"{Status}: ";
+
+            if (!string.IsNullOrWhiteSpace(Error))
+            {
+                message += $"{Error}: ";
+            }
+
+            message += $"{Message}" + Environment.NewLine;
+
+            if (Status == NemoExpressResponseStatus.Done)
+                message += Data.ToString();
+
+            return message + Environment.NewLine + Environment.NewLine;
         }
     }
 }

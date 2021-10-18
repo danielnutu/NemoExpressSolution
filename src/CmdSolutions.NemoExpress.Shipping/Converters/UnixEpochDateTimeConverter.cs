@@ -10,8 +10,14 @@ namespace CmdSolutions.NemoExpress.Shipping.Converters
 
         public override DateTime Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
-            var formatted = reader.GetInt64();
-            return _epoch.AddSeconds(formatted);
+            var date = reader.TokenType switch
+            {
+                JsonTokenType.Number => _epoch.AddSeconds(reader.GetInt64()),
+                JsonTokenType.String => _epoch.AddSeconds(double.Parse(reader.GetString())),
+                _ => DateTime.Now
+            };
+
+            return date;
         }
 
         // have a look at

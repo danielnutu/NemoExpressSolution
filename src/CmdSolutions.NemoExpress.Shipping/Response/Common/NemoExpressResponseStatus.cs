@@ -9,12 +9,21 @@ namespace CmdSolutions.NemoExpress.Shipping.Response
     [JsonConverter(typeof(JsonStringEnumMemberConverter))]
     public enum NemoExpressResponseStatus
     {
+        /// <summary>
+        /// The response is ok
+        /// </summary>
         [EnumMember(Value = "done")]
         Done,
 
+        /// <summary>
+        /// Not allowed? (gtfo... do proper documentation nemo)
+        /// </summary>
         [EnumMember(Value = "forbidden")]
         Forbidden,
 
+        /// <summary>
+        /// The response failed somewhere over the rainbow
+        /// </summary>
         [EnumMember(Value = "failed")]
         Failed
     }

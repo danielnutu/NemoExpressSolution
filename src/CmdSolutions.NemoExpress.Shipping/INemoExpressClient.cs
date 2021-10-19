@@ -1,5 +1,6 @@
 ﻿using CmdSolutions.NemoExpress.Shipping.Requests;
 using CmdSolutions.NemoExpress.Shipping.Response;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -14,7 +15,7 @@ namespace CmdSolutions.NemoExpress.Shipping
         /// Gets the status of a shipment
         /// </summary>
         /// <param name="request">The shipment status request</param>
-        /// <param name="cancellationToken">Cancellation token</param>
+        /// <param name="cancellationToken">The cancellation token</param>
         /// <returns>The shipment status response</returns>
         Task<ShipmentStatusResponse> GetStatusAsync(ShipmentStatusRequest request, CancellationToken cancellationToken);
 
@@ -22,8 +23,24 @@ namespace CmdSolutions.NemoExpress.Shipping
         /// Gets information about a shipment
         /// </summary>
         /// <param name="request">The shipment info request</param>
-        /// <param name="cancellationToken">Cancellation token</param>
+        /// <param name="cancellationToken">The cancellation token</param>
         /// <returns>The shipment info response</returns>
         Task<ShipmentInfoResponse> GetInfoAsync(ShipmentInfoRequest request, CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Gets a list of main services
+        /// </summary>
+        /// <param name="request">The request</param>
+        /// <param name="cancellationToken">The cancellation token</param>
+        /// <returns></returns>
+        Task<IEnumerable<ListMainServicesData>> ListMainServicesAsync(ListServicesRequest request, CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Gets a list of extra services
+        /// </summary>
+        /// <param name="request">The request</param>
+        /// <param name="cancellationToken">The cancellation token</param>
+        /// <returns></returns>
+        Task<IEnumerable<ListExtraServicesData>> ListExtraServicesAsync(ListServicesRequest request, CancellationToken cancellationToken);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using CmdSolutions.Shipping.NemoExpress.Requests;
 using CmdSolutions.Shipping.NemoExpress.Response;
+using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ namespace CmdSolutions.Shipping.NemoExpress
     /// <summary>
     /// Describes the operations that the Nemo Express Api can handle
     /// </summary>
-    public interface INemoExpressClient
+    public interface INemoExpressClient : IDisposable
     {
         /// <summary>
         /// Gets the status of a shipment

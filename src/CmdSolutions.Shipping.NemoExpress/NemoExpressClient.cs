@@ -1,6 +1,7 @@
 ﻿using CmdSolutions.Shipping.NemoExpress.Requests;
 using CmdSolutions.Shipping.NemoExpress.Response;
 using CmdSolutions.Shipping.NemoExpress.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Json;
@@ -12,6 +13,7 @@ namespace CmdSolutions.Shipping.NemoExpress
     /// <inheritdoc/>
     public class NemoExpressClient : INemoExpressClient
     {
+        private bool _disposedValue;
         private readonly HttpClient _httpClient;
 
         /// <summary>
@@ -69,6 +71,30 @@ namespace CmdSolutions.Shipping.NemoExpress
                 .Add("type", request.ServiceType.ToString().ToLower());
 
             return await _httpClient.GetFromJsonAsync<IEnumerable<ListExtraServicesData>>($"{url}{queryString}", cancellationToken);
+        }
+
+        ~NemoExpressClient()
+        {
+            Dispose(disposing: false);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!_disposedValue)
+            {
+                if (disposing)
+                {
+                    _httpClient?.Dispose();
+                }
+
+                _disposedValue = true;
+            }
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+            GC.SuppressFinalize(this);
         }
     }
 }

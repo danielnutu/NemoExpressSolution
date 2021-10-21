@@ -2,6 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+    <FileVersion>0.1.0.0</FileVersion>
+    <Version>0.1.0</Version>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Company>Cmd Solutions</Company>
+    <Authors>Daniel Nutu</Authors>
+    <Description>Nemo Express .Net Core Client</Description>
+    <RepositoryUrl>https://github.com/danielnutu/NemoExpressSolution</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>

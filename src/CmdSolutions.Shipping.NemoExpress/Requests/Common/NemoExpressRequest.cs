@@ -1,4 +1,6 @@
-﻿namespace CmdSolutions.Shipping.NemoExpress.Requests
+﻿using System.Text.Json.Serialization;
+
+namespace CmdSolutions.Shipping.NemoExpress.Requests
 {
     /// <summary>
     /// Describes a base request for the Nemo Express Api
@@ -17,6 +19,7 @@
         /// <summary>
         /// Gets or sets the Api Key
         /// </summary>
+        [JsonIgnore]
         public string ApiKey { get; set; }
 
         /// <summary>

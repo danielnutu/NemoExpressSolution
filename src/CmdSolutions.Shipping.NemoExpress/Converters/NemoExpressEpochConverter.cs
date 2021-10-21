@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace CmdSolutions.Shipping.NemoExpress.Converters
 {
-    sealed class UnixEpochDateTimeConverter : JsonConverter<DateTime>
+    sealed class NemoExpressEpochConverter : JsonConverter<DateTime>
     {
         private static readonly DateTime _epoch = new DateTime(1970, 1, 1, 0, 0, 0);
 

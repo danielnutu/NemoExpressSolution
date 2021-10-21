@@ -33,7 +33,7 @@ namespace CmdSolutions.Shipping.NemoExpress
         /// </summary>
         /// <param name="request">The request</param>
         /// <param name="cancellationToken">The cancellation token</param>
-        /// <returns></returns>
+        /// <returns>A list of main services</returns>
         Task<IEnumerable<ListMainServicesData>> ListMainServicesAsync(ListServicesRequest request, CancellationToken cancellationToken);
 
         /// <summary>
@@ -41,7 +41,15 @@ namespace CmdSolutions.Shipping.NemoExpress
         /// </summary>
         /// <param name="request">The request</param>
         /// <param name="cancellationToken">The cancellation token</param>
-        /// <returns></returns>
+        /// <returns>A list of extra services</returns>
         Task<IEnumerable<ListExtraServicesData>> ListExtraServicesAsync(ListServicesRequest request, CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Gets a quota for a shipment
+        /// </summary>
+        /// <param name="request">The request</param>
+        /// <param name="cancellationToken">The cancellation token</param>
+        /// <returns>The expedition price response</returns>
+        Task<ExpeditionPriceResponse> GetExpeditionPrice(ExpeditionPriceRequest request, CancellationToken cancellationToken);
     }
 }

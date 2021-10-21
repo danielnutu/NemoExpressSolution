@@ -13,7 +13,7 @@ namespace CmdSolutions.Shipping.NemoExpress.Response
         /// <summary>
         /// Get or sets the date and time
         /// </summary>
-        [JsonConverter(typeof(UnixEpochDateTimeConverter))]
+        [JsonConverter(typeof(NemoExpressEpochConverter))]
         [JsonPropertyName("date")]
         public DateTime Date { get; set; }
 

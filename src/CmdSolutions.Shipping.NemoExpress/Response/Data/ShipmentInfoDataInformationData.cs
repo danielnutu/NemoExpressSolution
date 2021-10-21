@@ -118,7 +118,7 @@ namespace CmdSolutions.Shipping.NemoExpress.Response
         /// <summary>
         /// Get or sets the shipment's from time
         /// </summary>
-        [JsonConverter(typeof(UnixEpochDateTimeConverter))]
+        [JsonConverter(typeof(NemoExpressEpochConverter))]
         [JsonPropertyName("from_time")]
         public DateTime FromTime { get; set; }
 
@@ -191,21 +191,21 @@ namespace CmdSolutions.Shipping.NemoExpress.Response
         /// <summary>
         /// Get or sets the shipment's to time
         /// </summary>
-        [JsonConverter(typeof(UnixEpochDateTimeConverter))]
+        [JsonConverter(typeof(NemoExpressEpochConverter))]
         [JsonPropertyName("to_time")]
         public DateTime ToTime { get; set; }
 
         /// <summary>
         /// Get or sets the shipment's pickup date
         /// </summary>
-        [JsonConverter(typeof(UnixEpochDateTimeConverter))]
+        [JsonConverter(typeof(NemoExpressEpochConverter))]
         [JsonPropertyName("pickup_date")]
         public DateTime PickupDate { get; set; }
 
         /// <summary>
         /// Get or sets the shipment's schedules pickup date
         /// </summary>
-        [JsonConverter(typeof(UnixEpochDateTimeConverter))]
+        [JsonConverter(typeof(NemoExpressEpochConverter))]
         [JsonPropertyName("scheduled_pickup_date")]
         public DateTime ScheduledPickupDate { get; set; }
 
